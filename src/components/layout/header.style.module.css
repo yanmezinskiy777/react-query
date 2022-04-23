@@ -1,0 +1,10 @@
+.linkNav{
+    color: white;
+    font-size: medium;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: inherit;
+}
+.linkNav:visited{
+    color: white;
+}

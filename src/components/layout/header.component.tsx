@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AppBar, IconButton, Toolbar, Typography, Stack } from "@mui/material";
 import QueryBuilderOutlinedIcon from "@mui/icons-material/QueryBuilderOutlined";
+import style from "./header.style.module.css";
 
 const Header = () => {
   return (
@@ -13,9 +14,9 @@ const Header = () => {
           QUERY
         </Typography>
         <Stack direction="row" spacing={2}>
-          <Link color="white" to="/">Home</Link>
-          <Link color="white" to="/users">Users</Link>
-          <Link color="white" to="/blog">Blog</Link>
+          <Link className={style.linkNav} to="/">Home</Link>
+          <Link className={style.linkNav} to="/users">Users</Link>
+          <Link className={style.linkNav} to="/blog">Blog</Link>
         </Stack>
       </Toolbar>
     </AppBar>
