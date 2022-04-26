@@ -1,8 +1,10 @@
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useUserQuery } from "../hooks/useUsersQuery";
+import { IUserData } from "./types";
 
-//type TUser = Partial<IUserData>;
+type TUser = Partial<IUserData>;
 
 const HomePage = () => {
   const onSuccess = (data: any) => {
@@ -40,12 +42,15 @@ const HomePage = () => {
       >
         Get Users
       </Button>
-      {/* {data?.data.map((user: TUser) => (
-        <div key={user.id}>{user.username}</div>
-      ))} */}
-      {data?.map((user) => (
-        <h5 key={user}>{user}</h5>
-      ))}
+      <ul>
+        {data?.map(({ id, username }: TUser) => (
+          <li key={id}>
+            <Link to={`/user/${id}`}>
+              {username}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

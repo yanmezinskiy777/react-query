@@ -16,6 +16,6 @@ export const useUserQuery = ({ onSuccess, onError }: IUseQueryHook) => {
     enabled: false,
     onSuccess,
     onError,
-    select: (data) => data.data.map((user) => user.username),
+    select: (data) => data?.data.map(user => user),
   });
 };
