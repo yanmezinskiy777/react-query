@@ -1,14 +1,8 @@
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
-import axios from "axios";
-import { useQuery } from "react-query";
-import { IUserData } from "./types";
+import { useUserQuery } from "../hooks/useUsersQuery";
 
-type TUser = Partial<IUserData>;
-
-const fetchUsers = () => {
-  return axios.get<IUserData[]>("https://jsonplaceholder.typicode.com/users");
-};
+//type TUser = Partial<IUserData>;
 
 const HomePage = () => {
   const onSuccess = (data: any) => {
@@ -21,15 +15,8 @@ const HomePage = () => {
     console.dir(error);
   };
 
-  const { isError, isLoading, data, status, isFetching, refetch } = useQuery(
-    "query-users",
-    fetchUsers,
-    {
-      enabled: false,
-      onSuccess,
-      onError,
-    }
-  );
+  const { isError, isLoading, data, status, isFetching, refetch } =
+    useUserQuery({ onSuccess, onError });
   console.log({ isFetching, isLoading });
   if (isError) {
     return <h1>{status}</h1>;
@@ -53,8 +40,11 @@ const HomePage = () => {
       >
         Get Users
       </Button>
-      {data?.data.map((user: TUser) => (
+      {/* {data?.data.map((user: TUser) => (
         <div key={user.id}>{user.username}</div>
+      ))} */}
+      {data?.map((user) => (
+        <h5 key={user}>{user}</h5>
       ))}
     </div>
   );
