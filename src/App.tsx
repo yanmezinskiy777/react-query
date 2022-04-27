@@ -6,6 +6,7 @@ import ProfilePage from "./components/pages/profile.page";
 import BlogPage from "./components/pages/blog.page";
 import HomePage from "./components/pages/home.page";
 import UsersPage from "./components/pages/users.page";
+import DynamicBlogPage from "./components/pages/dynamic-blog.page";
 
 function App() {
   const client = new QueryClient();
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="dynamic-blog" element={<DynamicBlogPage postsId={[1,4]} />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="user/:id" element={<ProfilePage />} />

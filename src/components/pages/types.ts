@@ -25,3 +25,15 @@ export interface IUserData {
   website: string;
   company: Company;
 }
+export interface IPost {
+  id:number;
+  title: number;
+  body: number;
+  userId: number;
+}
+export interface IComment {
+  postId: number;
+  id: number;
+  email: string;
+  body: string;
+}

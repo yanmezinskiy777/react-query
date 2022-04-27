@@ -17,6 +17,7 @@ const Header = () => {
           <Link className={style.linkNav} to="/">Home</Link>
           <Link className={style.linkNav} to="/users">Users</Link>
           <Link className={style.linkNav} to="/blog">Blog</Link>
+          <Link className={style.linkNav} to="/dynamic-blog">Dynamic Blog</Link>
         </Stack>
       </Toolbar>
     </AppBar>
