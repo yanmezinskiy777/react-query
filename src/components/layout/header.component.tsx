@@ -18,6 +18,8 @@ const Header = () => {
           <Link className={style.linkNav} to="/users">Users</Link>
           <Link className={style.linkNav} to="/blog">Blog</Link>
           <Link className={style.linkNav} to="/dynamic-blog">Dynamic Blog</Link>
+          <Link className={style.linkNav} to="/dynamic-parallel-blog">Dynamic Blog</Link>
+          <Link className={style.linkNav} to="/dependt-query-page">Dependt Query Page</Link>
         </Stack>
       </Toolbar>
     </AppBar>
