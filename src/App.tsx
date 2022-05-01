@@ -9,6 +9,8 @@ import UsersPage from "./components/pages/users.page";
 import DynamicBlogPage from "./components/pages/dynamic-blog.page";
 import DynamicMapPage from "./components/pages/dynamic-map.page";
 import DependQueryPage from "./components/pages/dependt-query.page";
+import PaginatePage from "./components/pages/paginate.page";
+import InfiniteQueryPage from "./components/pages/infinite-query.page";
 
 function App() {
   const client = new QueryClient();
@@ -21,6 +23,8 @@ function App() {
             <Route path="dynamic-blog" element={<DynamicBlogPage postsId={[1,4]} />} />
             <Route path="dynamic-parallel-blog" element={<DynamicMapPage postIds={[2,5]} />} />
             <Route path="dependt-query-page" element={<DependQueryPage id={5} />} /> 
+            <Route path="paginate-page" element={<PaginatePage />} />
+            <Route path="infinite-query-page" element={<InfiniteQueryPage />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="user/:id" element={<ProfilePage />} />

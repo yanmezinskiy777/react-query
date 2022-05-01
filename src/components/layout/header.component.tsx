@@ -20,6 +20,8 @@ const Header = () => {
           <Link className={style.linkNav} to="/dynamic-blog">Dynamic Blog</Link>
           <Link className={style.linkNav} to="/dynamic-parallel-blog">Dynamic Blog</Link>
           <Link className={style.linkNav} to="/dependt-query-page">Dependt Query Page</Link>
+          <Link className={style.linkNav} to="/paginate-page">Paginate Page</Link>
+          <Link className={style.linkNav} to="/infinite-query-page">Infinite Query Page</Link>
         </Stack>
       </Toolbar>
     </AppBar>
