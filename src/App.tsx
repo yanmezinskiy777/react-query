@@ -11,6 +11,7 @@ import DynamicMapPage from "./components/pages/dynamic-map.page";
 import DependQueryPage from "./components/pages/dependt-query.page";
 import PaginatePage from "./components/pages/paginate.page";
 import InfiniteQueryPage from "./components/pages/infinite-query.page";
+import CreatePostPage from "./components/pages/create-post.page";
 
 function App() {
   const client = new QueryClient();
@@ -25,6 +26,7 @@ function App() {
             <Route path="dependt-query-page" element={<DependQueryPage id={5} />} /> 
             <Route path="paginate-page" element={<PaginatePage />} />
             <Route path="infinite-query-page" element={<InfiniteQueryPage />} />
+            <Route path="create-post-page" element={<CreatePostPage />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="user/:id" element={<ProfilePage />} />

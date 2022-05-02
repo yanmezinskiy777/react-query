@@ -22,6 +22,7 @@ const Header = () => {
           <Link className={style.linkNav} to="/dependt-query-page">Dependt Query Page</Link>
           <Link className={style.linkNav} to="/paginate-page">Paginate Page</Link>
           <Link className={style.linkNav} to="/infinite-query-page">Infinite Query Page</Link>
+          <Link className={style.linkNav} to="/create-post-page">Create Post Page</Link>
         </Stack>
       </Toolbar>
     </AppBar>

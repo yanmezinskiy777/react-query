@@ -26,9 +26,9 @@ export interface IUserData {
   company: Company;
 }
 export interface IPost {
-  id:number;
-  title: number;
-  body: number;
+  id?:number;
+  title: string;
+  body: string;
   userId: number;
 }
 export interface IComment {
