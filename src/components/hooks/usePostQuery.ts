@@ -25,8 +25,32 @@ export const usePostQuery = ({ id }: IUseQueryHook) => {
 export const useCreatePost = () => {
   const queryClient = useQueryClient();
   return useMutation(onCreatePostHandle, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("query-post")
-    }
+    // onSuccess: (data) => {
+    //   queryClient.setQueryData("query-blog", (oldData: any) => {
+    //     return{
+    //       ...oldData.data,
+    //       data: [...oldData.data, data.data]
+    //     }
+    //   })
+    // },
+    onMutate: async (newPost) => {
+      await queryClient.cancelQueries();
+      const prevData = queryClient.getQueryData("query-blog");
+      queryClient.setQueriesData("query-blog", (oldData: any) => {
+        return {
+          ...oldData,
+          data: [...oldData.data, { id: oldData.data.length + 1, ...newPost }],
+        };
+      });
+      return {
+        prevData,
+      };
+    },
+    onError: (_error, _post, context: any) => {
+      queryClient.setQueriesData("query-blog", context.prevData);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries("query-blog");
+    },
   });
 };

@@ -5,14 +5,17 @@ import {
   Input,
   InputLabel,
 } from "@mui/material";
+import axios from "axios";
 import { useState } from "react";
+import { useQuery } from "react-query";
 import { useCreatePost } from "../hooks/usePostQuery";
+import { IPost } from "./types";
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
 
-  const { mutate: AddPost } = useCreatePost()
+  const { mutate: AddPost } = useCreatePost();
 
   const onChangeHandler = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -22,11 +25,16 @@ const CreatePostPage = () => {
   };
 
   const onCreatePost = () => {
-      const post = { title, body , userId: 1}
-      AddPost(post)
-  }
+    const post = { title, body, userId: 1 };
+    AddPost(post);
+  };
 
-  console.log({ title, body })
+  const fetchBlog = () => {
+    return axios.get<IPost[]>("https://jsonplaceholder.typicode.com/posts");
+  };
+
+  const { data: posts } = useQuery("query-blog", fetchBlog);
+
   return (
     <div>
       <FormGroup style={{ maxWidth: "40%" }}>
@@ -54,6 +62,15 @@ const CreatePostPage = () => {
         </FormControl>
         <Button onClick={onCreatePost}>Create Post</Button>
       </FormGroup>
+      <div>
+        <h2>Posts</h2>
+        <ul>
+          {posts &&
+            posts.data.map((post: IPost) => (
+              <li key={post.id}>{post.title}</li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 };

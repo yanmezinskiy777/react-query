@@ -17,9 +17,9 @@ const HomePage = () => {
     console.dir(error);
   };
 
-  const { isError, isLoading, data, status, isFetching, refetch } =
+  const { isError, isLoading, data, status, refetch } =
     useUserQuery({ onSuccess, onError });
-  console.log({ isFetching, isLoading });
+
   if (isError) {
     return <h1>{status}</h1>;
   }
@@ -43,7 +43,7 @@ const HomePage = () => {
         Get Users
       </Button>
       <ul>
-        {data?.map(({ id, username }: TUser) => (
+        {data?.data.map(({ id, username }: TUser) => (
           <li key={id}>
             <Link to={`/user/${id}`}>
               {username}

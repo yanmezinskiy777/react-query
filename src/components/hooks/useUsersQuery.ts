@@ -7,8 +7,8 @@ const fetchUsers = () => {
 };
 
 interface IUseQueryHook {
-  onSuccess: (data: any) => void;
-  onError: (error: any) => void;
+  onSuccess?: (data: any) => void;
+  onError?: (error: any) => void;
 }
 
 export const useUserQuery = ({ onSuccess, onError }: IUseQueryHook) => {
@@ -16,6 +16,6 @@ export const useUserQuery = ({ onSuccess, onError }: IUseQueryHook) => {
     enabled: false,
     onSuccess,
     onError,
-    select: (data) => data?.data.map(user => user),
+    //select: (data) => data?.data.map(user => user),
   });
 };
