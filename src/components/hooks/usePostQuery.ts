@@ -1,6 +1,7 @@
 import axios from "axios";
 import { IPost } from "../pages/types";
 import { useMutation, useQuery, useQueryClient } from "react-query";
+import { request } from "../api/axios";
 
 const fetchData = ({ queryKey }: any) => {
   return axios.get<IPost>(
@@ -9,7 +10,7 @@ const fetchData = ({ queryKey }: any) => {
 };
 
 const onCreatePostHandle = (post: IPost) => {
-  return axios.post("https://jsonplaceholder.typicode.com/posts", post);
+  return request({ url: "/posts", body: post, method: "post"});
 };
 
 interface IUseQueryHook {
